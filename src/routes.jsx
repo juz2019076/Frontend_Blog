@@ -1,9 +1,14 @@
-import { DashboardPage } from './pages/dashboard';
-import { AuthPage } from './pages/auth';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Post from './pages/Post';
 
-const routes = [
-    {path: '/auth' , element: <AuthPage/>},
-    {path: '/*' , element: <AuthPage/>}
-]
-
-export default routes
+export default function AppRoutes() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post/:id" element={<Post />} />
+      </Routes>
+    </Router>
+  );
+}
