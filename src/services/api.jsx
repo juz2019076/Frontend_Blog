@@ -1,40 +1,23 @@
-/* eslint-disable no-useless-catch */
 import axios from "axios";
 
 const apiClient = axios.create({
     baseURL: 'http://127.0.0.1:3000/blog/v1',
-    timeout: 1000
+    
 })
 
-export const getBlogs = async () => {
-    try{
-        return await apiClient.get('/posting')
-    }catch(e){
-        return{
-            error: true,
-            e
-        }
-    }
-}
+const api = axios.create({
+    baseURL: 'http://localhost:3000/blog/v1',
+    timeout: 1000
+});
 
-export const getComentarios = async () => {
-    try{
-        return await apiClient.get('/comment')
-    }catch(e){
-        return{
-            error: true,
-            e
-        }
-    }
-}
+export const fetchPublications = () => api.get('/publications');
+export const createPublication = (data) => api.post('/publications', data);
+export const updatePublication = (id, data) => api.put(`/publications/${id}`, data);
+export const deletePublication = (id) => api.delete(`/publications/${id}`);
 
-export const postComentarios = async (data) => {
-    try {
-        return await apiClient.post('/comment/add', data)
-    } catch (e) {
-        return{
-            error: true,
-            e
-        }
-    }
-}
+export const fetchComments = () => api.get('/comments');
+export const createComment = (data) => api.post('/comments', data);
+export const updateComment = (id, data) => api.put(`/comments/${id}`, data);
+export const deleteComment = (id) => api.delete(`/comments/${id}`);
+
+export default apiClient;
