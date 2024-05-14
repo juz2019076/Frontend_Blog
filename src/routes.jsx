@@ -1,14 +1,19 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Post from './pages/Post';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import BlogList from './components/blog/BlogList';
+import BlogForm from './components/blog/BlogForm';
+import CommentList from './components/comments/CommentList';
+import CommentForm from './components/comments/CommentForm';
 
-export default function AppRoutes() {
-  return (
+const Routes = () => (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/post/:id" element={<Post />} />
-      </Routes>
+        <Switch>
+            <Route exact path="/publications" component={BlogList} />
+            <Route path="/publications/new" component={BlogForm} />
+            <Route path="/comments" component={CommentList} />
+            <Route path="/comments/new/:publicationId" component={CommentForm} />
+        </Switch>
     </Router>
-  );
-}
+);
+
+export default Routes;
