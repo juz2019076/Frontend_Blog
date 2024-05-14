@@ -9,7 +9,7 @@ const Dashboard = () => {
     const fetchPublications = async () => {
       try {
         const response = await api.get('/publications');
-        setPublications(response.data.publications); // Asegúrate de que la respuesta contiene las publicaciones
+        setPublications(response.data.publications); 
       } catch (error) {
         console.error('Error fetching publications', error);
       }
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>Proyectos</h1>
       <Blog publications={publications} />
     </div>
   );
