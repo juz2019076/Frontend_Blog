@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/dashboard/DashboardPage';
 import Navbar from './components/navbar/Navbar';
-import Dashboard from './pages/dashboard/Dashboard';
 
 const App = () => {
   return (
@@ -9,7 +9,6 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );

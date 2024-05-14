@@ -1,10 +1,5 @@
 import axios from "axios";
 
-const apiClient = axios.create({
-    baseURL: 'http://127.0.0.1:3000/blog/v1',
-    
-})
-
 const api = axios.create({
     baseURL: 'http://localhost:3000/blog/v1',
     timeout: 1000
@@ -20,4 +15,4 @@ export const createComment = (data) => api.post('/comments', data);
 export const updateComment = (id, data) => api.put(`/comments/${id}`, data);
 export const deleteComment = (id) => api.delete(`/comments/${id}`);
 
-export default apiClient;
+export default api;
